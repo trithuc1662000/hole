@@ -1,0 +1,19 @@
+   local ws = game:WaitForChild("Workspace")
+	local live = ws:WaitForChild("Live")
+	local char = live:WaitForChild(game.Players.LocalPlayer.Name) 
+	function Tween(HumanoidRootPart,Location,Time)
+		local Tween = game:GetService("TweenService"):Create(HumanoidRootPart,
+		TweenInfo.new(Time,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),{CFrame = Location})
+		Tween:Play()
+		Tween.Completed:Wait()
+	end  
+ 
+	if game.PlaceId == 536102540 then
+		Tween(char.HumanoidRootPart,CFrame.new(2656.71802, 3945.04028, -2516.38477, 1, 0, 0, 0, 1, 0, 0, 0, 1),2.5)
+    end
+ 
+	if game.PlaceId == 2050207304 then
+		local brly = live:WaitForChild("Broly BR")
+		Tween(char.HumanoidRootPart,brly:WaitForChild("HumanoidRootPart").CFrame,1)
+		game.Workspace.CurrentCamera.CFrame = CFrame.new(char.HumanoidRootPart.Position,B.HumanoidRootPart.Position) * CFrame.new(0,2,10)
+	end
